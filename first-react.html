@@ -2,43 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>First React Component</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>First React Component</title>
 </head>
 
 <body>
-    <div id="app"></div>
-</body>
-<div id="app"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-<script type="text/babel">
+  <div id="app"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script type="text/babel">
 
 function IdentifyName(props) {
-    return <h1>Are you {props.firstName} {props.lastName}?</h1>;
+    return <h2>Are you {props.firstName} {props.lastName}?</h2>;
 }
 
-// const person = {
-//     firstName: "John",
-//     lastName: "Doe",
-// };
+const info = {
+  image: "13905273.jpg" 
+}
+
     class Greeting extends React.Component {
+    
+     constructor(props) {
+       super(props);
+       this.state = {
+         personCategory: "Anonymous Persons"
+       }
+     }
+
      render() {
        return (
          <div>
+          <h1>Questions to ask: <i>{this.state.personCategory}</i></h1>
+          <img src = {this.props.image} alt= "Anonymous person profiles" height="200" width="200" />
            <IdentifyName firstName="John" lastName="Doe" />
-           <IdentifyName firstName="Sara" lastName="Logan" />
+           <IdentifyName firstName="Jane" lastName="Doe" />
          </div>
        );
      }
    }
 
    ReactDOM.render(
-     <Greeting />, document.getElementById('app')
+     <Greeting 
+     image= {info.image} />, document.getElementById('app')
    );
 </script>
+</body>
 
 </html>
